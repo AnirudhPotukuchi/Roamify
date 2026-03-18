@@ -1,0 +1,403 @@
+/* ================
+   1. BASE & RESET
+   ================*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f7f9fc;
+    color: #333;
+    line-height: 1.6;
+    animation: fadeInPage 1s ease-out forwards;
+}
+
+@keyframes fadeInPage {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ==============
+   2. TYPOGRAPHY
+   ============== */
+h1, h2, h3, h4 {
+    color: #1a1a1a;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    color: #2c3e50;
+}
+
+.section-title::after {
+    content: '';
+    width: 60px;
+    height: 4px;
+    background: #e74c3c;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+/* ==================
+   3. NAVIGATION BAR
+   ==================*/
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #e74c3c;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-icon {
+    height: 36px;
+    width: auto;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #e74c3c;
+}
+
+/* =================
+   4. HERO SECTION
+   =================*/
+.hero {
+    height: 50vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('Banner-Image.png') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.cta-btn {
+    background-color: #e74c3c;
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s;
+    display: inline-block;
+}
+
+.cta-btn:hover {
+    background-color: #c0392b;
+    transform: translateY(-3px);
+}
+
+/* =========================
+   5. CONTAINER & SECTIONS
+   =========================*/
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.section {
+    padding: 4rem 0;
+}
+
+/* ================
+   6. LAYOUT GRIDS
+   ================*/
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+/* =============================
+   7. DESTINATIONS & FOOD CARDS
+   =============================*/
+.dest-card, .food-card {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+}
+
+.dest-card:hover, .food-card:hover {
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.dest-image, .food-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.dest-info, .food-info {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.dest-info p, .food-info p {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.cost {
+    color: #e74c3c !important;
+    font-weight: 600;
+    font-size: 1.1rem !important;
+    margin-top: auto;
+    margin-bottom: 1rem !important;
+}
+
+.add-btn, .remove-btn {
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s;
+    color: white;
+}
+
+.add-btn {
+    background-color: #3498db;
+    margin-top: auto;
+}
+
+.add-btn:hover {
+    background-color: #2980b9;
+}
+
+.remove-btn {
+    background-color: #e74c3c;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+}
+
+.remove-btn:hover {
+    background-color: #c0392b;
+}
+
+/* ===================
+   8. PLANNER SUMMARY
+   ===================*/
+.planner-layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.planner-controls {
+    flex: 1 1 300px;
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.plan-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.plan-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.plan-form input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.plan-form input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52,152,219,0.2);
+}
+
+.budget-summary {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+}
+
+.budget-summary h4 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.budget-summary p {
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+}
+
+.highlight {
+    font-weight: 600;
+    color: #3498db;
+}
+
+.final-budget {
+    font-size: 1.4rem !important;
+    font-weight: 600;
+    color: #2ecc71 !important;
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #f0fdf4;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.payment-btn {
+    display: block;
+    width: 100%;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: #2ecc71;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.payment-btn:hover {
+    background-color: #27ae60;
+}
+
+.planner-table-container {
+    flex: 2 1 500px;
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    overflow-x: auto;
+}
+
+/* =================
+   9. STYLED TABLES
+   =================*/
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.styled-table th, .styled-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.styled-table th {
+    background-color: #f8f9fc;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.styled-table tr:hover {
+    background-color: #fcfcfc;
+}
+
+.empty-state {
+    text-align: center !important;
+    color: #888;
+    font-style: italic;
+    padding: 2rem !important;
+}
+
+/* ===========
+   10. FOOTER
+   =========== */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    margin-top: 2rem;
+}
+
+.footer-logo {
+    color: #e74c3c;
+    font-weight: 600;
+}
+
+/* ======================
+   11. RESPONSIVE LAYOUT
+   ====================== */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .planner-layout {
+        flex-direction: column;
+    }
+}

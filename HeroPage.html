@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roamify.</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="logo.svg">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="logo.svg" alt="Logo" class="nav-icon">
+            Roamify.
+        </div>
+        <ul class="nav-links">
+            <li><a href="#destinations">Destinations</a></li>
+            <li><a href="#food">Local Cuisine</a></li>
+            <li><a href="#planner">Plan Trip</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Discover Your Next Adventure</h1>
+            <p>Explore top destinations, taste exotic foods, and generate a transparent travel budget.</p>
+            <a href="#destinations" class="cta-btn">Start Exploring</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Destinations Section -->
+        <section id="destinations" class="section">
+            <h2 class="section-title">Popular Destinations</h2>
+            <div class="grid" id="destinations-container">
+                <!-- Dynamically populated by JS -->
+            </div>
+        </section>
+
+        <!-- Food Section -->
+        <section id="food" class="section">
+            <h2 class="section-title">Culinary Delights</h2>
+            <div class="grid food-grid">
+                <div class="food-card">
+                    <img src="./Food/Kachori-Sabzi.png" alt="Kachori Sabzi">
+                    <div class="food-info">
+                        <h3>Kachori Sabzi and Tamatar Chaat</h3>
+                        <p>Varanasi's iconic street food centers on Kachori Sabzi (spiced lentil-filled bread with potato curry) and Tamatar Chaat (tangy, mashed tomato-based savory snack).</p>
+                    </div>
+                </div>
+                <div class="food-card">
+                    <img src="./Food/Lakshadweep-Halwa.png" alt="Lakshadweep Halwa">
+                    <div class="food-info">
+                        <h3>Lakshadweep Halwa</h3>
+                        <p>Lakshadweep Halwa, also known as Dweep Halwa or Dweep Unda, is a traditional, soft, and chewy sweet made primarily from coconut and palm jaggery.</p>
+                    </div>
+                </div>
+                <div class="food-card">
+                    <img src="./Food/Kashmiri-Pulao.png" alt="Kashmiri Pulao">
+                    <div class="food-info">
+                        <h3>Kashmiri Pulao</h3>
+                        <p>Kashmiri Pulao is a rich, mildly sweet, and aromatic Indian rice dish from Kashmiri cuisine, distinguished by its use of fragrant basmati rice, saffron, nuts, dried fruits, and fresh fruits.</p>
+                    </div>
+                </div>
+                <div class="food-card">
+                    <img src="./Food/North-Karnataka-Thali.png" alt="North Karnataka Thali">
+                    <div class="food-info">
+                        <h3>North Karnataka Thali</h3>
+                        <p>A North Karnataka Thali in Hampi is a vibrant, spice-forward vegetarian meal centered on Jolada Rotti (sorghum flatbread) and Yenne Badanekayi (spicy stuffed brinjal curry).</p>
+                    </div>
+                </div>
+                <div class="food-card">
+                    <img src="./Food/Pyaaz-Kachori.png" alt="Pyaaz Kachori">
+                    <div class="food-info">
+                        <h3>Pyaaz Kachori</h3>
+                        <p>Pyaaz Kachori is an iconic, deep-fried Rajasthani snack famous in Jaipur. It consists of a crispy, flaky, golden-brown maida (refined flour) pastry stuffed with a spicy, savory filling of onions, potatoes, and a blend of aromatic spices (often including fennel, coriander, garlic, and chili).</p>
+                    </div>
+                </div>
+                <div class="food-card">
+                    <img src="./Food/Vada-Pav.png" alt="Vada Pav">
+                    <div class="food-info">
+                        <h3>Vada Pav</h3>
+                        <p>Vada Pav is an iconic Mumbai street food, often called the "Indian burger" or "Bombay burger". It consists of a deep-fried, spiced potato patty (batata vada) placed inside a soft bread roll (pav), typically accompanied by spicy garlic, green, or sweet chutneys, fried green chilies, and sometimes chopped onions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Planner Section -->
+        <section id="planner" class="section planner-section">
+            <h2 class="section-title">Your Travel Plan</h2>
+            <div class="planner-layout">
+                
+                <!-- Planner Form and Summary Controls -->
+                <div class="planner-controls">
+                    <h3>Trip Details</h3>
+                    <form class="plan-form" id="plan-form">
+                        <div class="form-group">
+                            <label for="customer-name">Customer Name:</label>
+                            <input type="text" id="customer-name" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="days">Number of Days:</label>
+                            <input type="number" id="days" min="1" value="3" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="persons">Number of Travelers:</label>
+                            <input type="number" id="persons" min="1" value="2" required>
+                        </div>
+                    </form>
+                    <div class="budget-summary" id="budget-summary">
+                        <h4>Budget Summary</h4>
+                        <p>Total Destinations: <span id="total-dest-count" class="highlight">0</span></p>
+                        <p>Living Cost (₹500/day/person): ₹<span id="living-cost">300</span></p>
+                        <p class="final-budget">Estimated Total: ₹<span id="total-budget">0</span></p>
+                        <button class="payment-btn">Proceed to Payment</button>
+                    </div>
+                </div>
+
+                <!-- Planner Selected Destinations Table -->
+                <div class="planner-table-container">
+                    <h3>Selected Places</h3>
+                    <table id="plan-table" class="styled-table">
+                        <thead>
+                            <tr>
+                                <th>Destination</th>
+                                <th>Cost (per person)</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="plan-tbody">
+                            <tr>
+                                <td colspan="3" class="empty-state">No destinations added yet.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 <span class="footer-logo">Roamify.</span> Travels. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

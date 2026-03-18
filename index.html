@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roamify.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Poppins', sans-serif;
+            background-color: #000;
+        }
+        body {
+            transition: opacity 0.8s ease-in-out;
+            opacity: 1;
+        }
+        body.fade-out {
+            opacity: 0;
+        }
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #bg-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            opacity: 0.6; /* Dim video slightly to make text pop */
+        }
+        .logo-text {
+            position: relative;
+            z-index: 2;
+            font-size: 5rem;
+            font-weight: 600;
+            color: #e74c3c; /* Match navbar logo color */
+            text-shadow: 2px 2px 15px rgba(0,0,0,0.6);
+            animation: pulseFade 2.5s infinite alternate;
+        }
+
+        @keyframes pulseFade {
+            0% { opacity: 0.8; transform: scale(0.95); }
+            100% { opacity: 1; transform: scale(1.05); }
+        }
+        
+        .skip-btn {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            z-index: 3;
+            color: rgba(255,255,255,0.7);
+            border: 1px solid rgba(255,255,255,0.7);
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .skip-btn:hover {
+            color: #fff;
+            border-color: #fff;
+            background: rgba(255,255,255,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .logo-text {
+                font-size: 3rem;
+            }
+        }
+    </style>
+    <link rel="icon" href="favicon.svg">
+</head>
+<body>
+
+    <div class="video-container">
+        <!-- Autoplay, muted, and playsinline are required to allow automatic playback -->
+        <video id="bg-video" src="loading-video.mp4" autoplay muted playsinline></video>
+        
+        <!-- Centered Logo -->
+        <div class="logo-text">Roamify.</div>
+        
+        <a href="HeroPage.html" class="skip-btn">Skip</a>
+    </div>
+
+    <script>
+        const video = document.getElementById('bg-video');
+        
+        function transitionToMain() {
+            document.body.classList.add('fade-out');
+            setTimeout(() => {
+                window.location.href = 'HeroPage.html';
+            }, 800); 
+        }
+
+        video.addEventListener('ended', transitionToMain);
+
+        // Error handling in case video fails to load, redirect after 4 seconds
+        video.addEventListener('error', () => {
+            setTimeout(transitionToMain, 4000);
+        });
+
+        // Update Skip button to use smooth transition
+        document.querySelector('.skip-btn').addEventListener('click', (e) => {
+            e.preventDefault();
+            transitionToMain();
+        });
+    </script>
+</body>
+</html>
