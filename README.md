@@ -58,7 +58,7 @@ Roamify/
 
 ## 👨‍💻 Author
 
-**Anirudh Potukuchi**  
+**Potukuchi S R Anirudh**  
 - 💼 [LinkedIn](https://www.linkedin.com/in/s-r-anirudh-potukuchi/)  
 - 🎓 Web Programming Assignment-1
 
