@@ -1,5 +1,3 @@
-# 🌍 Roamify.
-
 <div align="center">
   <img src="logo-roamify.svg" alt="Roamify Logo" width="200"/>
 </div>
